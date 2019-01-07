@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Noto+Serif:400,600" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>What to Eat?</title>
+</head>
+
+<body>
+    <header>
+        <div class="wrapper">
+            <h1>What to eat?</h1>
+
+            <form>
+                <label for="userInput"></label>
+                <input type="text" placeholder="What city are you in?" id="userInput" name="userInput" class="input" required>
+                <button type="submit" class="submit" title="search cuisines in the specified city"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    </header>
+
+    <!-- CHOOSE A CUISINE -->
+    <section class="selectCuisine">
+        <div class="wrapper">
+            <h1 id="displayCity"></h1>
+            <form class="chooseCuisine">
+                <label for="cuisines">Choose A Cuisine!</label>
+                <select name="cuisines" id="cuisineList" required>
+                    <option value="" selected disabled>Choose a cuisine</option>
+                </select>
+                <label for="submitCuisine"></label>
+                <button class="submitCuisine" title="Shows the associated restaurants in the area">Show Restaurant</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- DISPLAY RESULTS -->
+    <section class="results">
+        <div class="wrapper">
+            <div id="restaurantName">
+
+            </div>
+            <div id="restaurantDetails">
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SEARCH AGAIN -->
+    <form>
+        <label for="searchAgain"></label>
+        <button id="searchAgain">Another One</button>
+
+        <label for="newSearch"></label>
+        <button id="newSearch" type="submit">New Search</button>
+    </form>
+
+    <!-- JAVASCRIPT/JQUERY -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
