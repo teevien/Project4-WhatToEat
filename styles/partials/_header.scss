@@ -1,0 +1,59 @@
+.headerContent {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    // padding-top:15%;
+    margin:15% 0 0 0;
+
+    form {
+        margin-top: 5%;
+
+        .input {
+            width:200px;
+            height:25px;
+            padding:5px 10px;
+            background:$primaryColor;
+            border:none;
+            border-radius:5px;
+            @include primaryFont(1rem);
+            color:$secondaryColor;
+
+            &::placeholder {
+                @include primaryFont(1rem);
+                color:$secondaryColor;
+            }
+            &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+            @include primaryFont(1rem);
+            color: $secondaryColor;
+            }
+            &::-moz-placeholder { /* Firefox 19+ */
+            @include primaryFont(1rem);
+              color: $secondaryColor;
+            }
+            &:-ms-input-placeholder { /* IE 10+ */
+            @include primaryFont(1rem);
+              color: $secondaryColor;
+            }
+            &:-moz-placeholder { /* Firefox 18- */
+            @include primaryFont(1rem);
+              color: $secondaryColor;
+            }
+            &:focus {
+                border:2px solid $secondaryColor;
+            }
+
+        }
+
+        .search {
+            // width:50px;
+            // height:29px;
+            padding:10px 15px;
+            border-radius:5px;
+            border:none;
+        }
+
+        #cuisineList {
+            padding:10px 15px;
+        }
+    }
+}

@@ -6,15 +6,28 @@ const app = {
     key: '96da6937114a6901ec154be1338c5427'
 };
 
+app.randomBackground = function() {
+    const imgCount = 3;
+    const dir = 'assets/';
+    const randomCount = Math.round(Math.random() * (imgCount - 1) + 1);
+    const images = new Array
+    images[1] = "img1.jpg",
+    images[2] = "img2.jpg",
+    images[3] = "img3.jpg",
+
+    $('#random').css('background', 'linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(' + dir + images[randomCount] + ') no-repeat center');
+};
+
 // 4. when user types in the city, captures the value in variable "userInput" which is then passed into getLocation function
 app.locationForm = function() {
-    $('.submit').on('click', function(e) {
+    $('.search').on('click', function(e) {
         e.preventDefault();
         app.userInput = $('#userInput').val();
-        app.getLocation(app.userInput)
-        .then(() => {
-            // console.log('userinput', app.userInput);
-        })
+        app.getLocation(app.userInput);
+        console.log(app.userInput);
+        // .then(() => {
+        //     // console.log('userinput', app.userInput);
+        // })
     })
 }
 
@@ -37,6 +50,7 @@ app.getLocation = function(userInput) {
         app.entityId = res.location_suggestions[0].entity_id;
         app.entityType = res.location_suggestions[0].entity_type;
         app.getCuisine(app.cityId);
+        console.log(app.cityId);
     })
 }
 
@@ -56,6 +70,7 @@ app.getCuisine = function(cityId) {
     }).then((res) => {
         app.cuisinesArray = res.cuisines;
         app.displayCuisine(app.cuisinesArray);
+        console.log('app', app.cuisinesArray);
     })
 }
 
@@ -68,11 +83,12 @@ app.displayCuisine = function (cuisinesArray) {
    
 // 7. on CLICK of the "show restaurant" button, grab the value of the selected option (in this case, the value will equal the cuisine_id). the value is stored in a variable "cuisineId" and passed into getRestaurant function
 app.cuisineForm = function() {
-    $('.submitCuisine').on('click', function(e){
+    $('#submitCuisine').on('click', function(e){
         e.preventDefault();
         var selector = document.getElementById('cuisineList');
        app.cuisineId = selector[selector.selectedIndex].value;
        app.getRestaurant(app.cuisineId);
+       console.log(app.cuisineId);
     })
 }
 
@@ -90,16 +106,41 @@ app.getRestaurant = function() {
             entity_type: app.entityType
         }
     }).then((res) => {
-        console.log(res.restaurants);
+        console.log('rest', res.restaurants);
         app.restaurantsArray = res.restaurants;
         app.displayRestaurants(app.restaurantsArray);
     })
 }
 
-
 app.displayRestaurants = function(restaurantsArray) {
-    restaurantsArray.forEach((restaurant) => { 
-        $('#restaurantName').append(`<h1>${restaurant.restaurant.name}</h1>`)
+    const restaurant = restaurantsArray[Math.floor(Math.random() * restaurantsArray.length)];
+    $('#restaurantName').append(`
+    <div class="rest-content">
+        <h2>${restaurant.restaurant.name}</h2>
+        <p>${restaurant.restaurant.location.address}</p>
+        <p>Rating: ${restaurant.restaurant.user_rating.rating_text}</p>
+        <p>Average Cost (for 2): $${restaurant.restaurant.average_cost_for_two}</p>
+        <p><a href="${restaurant.restaurant.url}">Visit on Zomato</a></p>
+    </div>
+    <div class="img-container">
+        <img src="${restaurant.restaurant.featured_image}">
+    </div>`);
+    console.log(restaurant.restaurant.featured_image);
+}
+
+
+app.tryAgain = function() {
+    $('#searchAgain').on('click', function(e){
+        e.preventDefault();
+        const restDetails = app.getRestaurant(app.restaurants);
+        app.displayRestaurants(restDetails);
+    })
+}
+
+app.newSearch = function() {
+    $('#newSearch').on('submit', function(){
+        console.log('new search')
+        return true;
     })
 }
 
@@ -110,6 +151,8 @@ app.init = function() {
     app.getCuisine();
     app.cuisineForm();
     app.getRestaurant();
+    app.randomBackground();
+    app.tryAgain();
 };
 
 // 1. document ready

@@ -1,0 +1,18 @@
+$primaryColor: #f3f3f3;
+$secondaryColor: #0f0f0f;
+
+@mixin primaryFont($fontSize) {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing:2px;
+    color:$primaryColor;
+    font-size: $fontSize;
+    margin:0;
+}
+
+@mixin titleFont($fontSize) {
+    font-family: 'Noto Serif', serif;
+    letter-spacing:2px;
+    color: $primaryColor;
+    font-size: $fontSize;
+    margin:0;
+}

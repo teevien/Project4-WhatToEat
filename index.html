@@ -12,53 +12,63 @@
 </head>
 
 <body>
-    <header>
+    <header id="random">
         <div class="wrapper">
-            <h1>What to eat?</h1>
 
-            <form>
-                <label for="userInput"></label>
-                <input type="text" placeholder="What city are you in?" id="userInput" name="userInput" class="input" required>
-                <button type="submit" class="submit" title="search cuisines in the specified city"><i class="fas fa-search"></i></button>
-            </form>
+            <div class="headerContent">
+                <h1>What to Eat?</h1>
+                <p>Type in your city below to start!</p>
+
+                <form>
+                    <label for="userInput"></label>
+                    <input type="text" placeholder="What city are you in?" id="userInput" name="userInput" class="input" required>
+                    <button type="submit" class="search" title="search cuisines in the specified city"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+
         </div>
     </header>
 
     <!-- CHOOSE A CUISINE -->
     <section class="selectCuisine">
         <div class="wrapper">
-            <h1 id="displayCity"></h1>
-            <form class="chooseCuisine">
-                <label for="cuisines">Choose A Cuisine!</label>
-                <select name="cuisines" id="cuisineList" required>
-                    <option value="" selected disabled>Choose a cuisine</option>
-                </select>
-                <label for="submitCuisine"></label>
-                <button class="submitCuisine" title="Shows the associated restaurants in the area">Show Restaurant</button>
-            </form>
+
+            <div class="cuisineContent">
+                <p>Searching in..</p>
+                <h2 id="displayCity"></h2>
+
+                <h2>Now choose a cuisine!</h2>
+                <form class="chooseCuisine">
+                    <label for="cuisines"></label>
+                    <select name="cuisines" id="cuisineList" required>
+                        <option value="" selected disabled>Choose a cuisine</option>
+                    </select>
+                    <label for="submitCuisine"></label>
+                    <button id="submitCuisine" class="submit" title="Shows the associated restaurants in the area">Show Restaurant</button>
+                </form>
+            </div>
+
         </div>
     </section>
 
     <!-- DISPLAY RESULTS -->
     <section class="results">
         <div class="wrapper">
-            <div id="restaurantName">
+                <div id="restaurantName">
 
-            </div>
-            <div id="restaurantDetails">
-
-            </div>
+        
+                </div>
+                <form>
+                    <label for="searchAgain"></label>
+                    <button id="searchAgain" class="submit">Another One</button>
+                
+                    <label for="newSearch"></label>
+                    <button id="newSearch" type="submit" class="submit">New Search</button>
+                </form>
         </div>
     </section>
 
     <!-- SEARCH AGAIN -->
-    <form>
-        <label for="searchAgain"></label>
-        <button id="searchAgain">Another One</button>
-
-        <label for="newSearch"></label>
-        <button id="newSearch" type="submit">New Search</button>
-    </form>
 
     <!-- JAVASCRIPT/JQUERY -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

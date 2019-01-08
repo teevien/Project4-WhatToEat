@@ -1,0 +1,42 @@
+html {
+    font-size:62.5%;
+
+    body {
+        @include primaryFont(1.6rem);
+        // border:1px solid red;
+        margin:0;
+        background:$secondaryColor;
+
+        .wrapper {
+            max-width:1280px;
+            width:80%;
+            margin:0 auto;
+        }
+
+        header, section {
+            height:100vh;
+            background: $secondaryColor;
+            border:1px solid $secondaryColor;
+            // padding:20% 0;
+        }
+
+        h1 {
+            @include titleFont(4.5rem);
+        }
+        
+        h2 {
+            @include titleFont(3rem);
+
+        }
+
+        p {
+            @include primaryFont(1.5rem);
+        }
+
+        .submit {
+            padding:10px 15px;
+            border-radius:5px;
+
+        }
+    }
+}

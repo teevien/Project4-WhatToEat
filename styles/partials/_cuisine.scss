@@ -1,0 +1,24 @@
+.cuisineContent {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:20%;
+
+    form {
+        margin-top:5%;
+
+        #cuisineList {
+            height:50px;
+            width:200px;
+            // padding:10px 15px;
+        }
+
+        .submitCuisine {
+            display:block;
+            width:160px;
+            height:30px;
+            border-radius:5px;
+            margin-top:5%;
+        }
+     }
+}
